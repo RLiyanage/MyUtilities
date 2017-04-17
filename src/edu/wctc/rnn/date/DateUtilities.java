@@ -44,7 +44,7 @@ public class DateUtilities {
      *
      */
     public void convertToLocalDateTimeToFormattedString(DateTimeFormatter formatter) {
-        formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+        //formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
         LocalDateTime dateTime = LocalDateTime.of(0, Month.of(0), 0, 0, 0);
         String formattedDateTime = dateTime.format(formatter);
         System.out.println(formattedDateTime);
@@ -54,7 +54,7 @@ public class DateUtilities {
      * @param dateAndTime - date and time in String format.
      */
     public void convertFornmattedStringToLocalDateTime(String dateAndTime) {
-        dateAndTime = "2016-04-08 12:30";
+        //dateAndTime = "2016-04-08 12:30";
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
         LocalDateTime dateTime = LocalDateTime.parse(dateAndTime, formatter);
         System.out.println(dateTime);
