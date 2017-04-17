@@ -32,8 +32,7 @@ public class DateUtilities {
      *
      * @return future date from now
      */
-    public LocalDate getFutureDate() {
-        int days = 15;
+    public LocalDate getFutureDate(int days) {         
         LocalDate today = LocalDate.now();
         LocalDate futureDay = today.plus(days, ChronoUnit.DAYS);
         System.out.println(futureDay);
