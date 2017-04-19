@@ -30,24 +30,32 @@ public class DateUtilities {
     /**
      * Gets the future date
      *
+     * @param NoOfDays -<code>NoOfDays</code> how many NoOfDays you need to add
      * @return future date from now
+     * @throws IllegalArgumentException if NoOfDays is negative.
      */
-    public LocalDate getFutureDate(int days) {         
+    public LocalDate getFutureDate(int NoOfDays) throws IllegalArgumentException {
+        if (NoOfDays < 0) {
+            throw new IllegalArgumentException("Number of days cannot be negative.");
+        }
         LocalDate today = LocalDate.now();
-        LocalDate futureDay = today.plus(days, ChronoUnit.DAYS);
+        LocalDate futureDay = today.plus(NoOfDays, ChronoUnit.DAYS);
         System.out.println(futureDay);
         return futureDay;
     }
 
     /**
-     * @param formatter - Pattern of DateTimeFormatter is required.
+     * Gets LocalDateTime to formatted String.
+     *
+     * @param format - <code>format </code>format is required.
+     *
      *
      */
-    public void convertToLocalDateTimeToFormattedString(DateTimeFormatter formatter) {
-        //formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
-        LocalDateTime dateTime = LocalDateTime.of(0, Month.of(0), 0, 0, 0);
-        String formattedDateTime = dateTime.format(formatter);
-        System.out.println(formattedDateTime);
+    public static String convertToLocalDateTimeToFormattedString(String strDate) {
+        strDate = "2015-08-04";
+        LocalDate date = LocalDate.parse(strDate);
+        DateTimeFormatter dTF = DateTimeFormatter.ofPattern("dd MMM yyyy");
+        return (date + " formats as " + dTF.format(date));
     }
 
     /**
